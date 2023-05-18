@@ -1,0 +1,6 @@
+{
+    // placement data
+    stage: 'test',
+    account: '...',
+    region: 'us-west-2',
+}

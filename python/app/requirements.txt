@@ -1,0 +1,10 @@
+boto3==1.26.135
+botocore==1.29.135
+cloudpathlib==0.14.0
+jmespath==1.0.1
+python-dateutil==2.8.2
+s3transfer==0.6.1
+six==1.16.0
+typing_extensions==4.5.0
+uritemplate==4.1.1
+urllib3==1.26.15
