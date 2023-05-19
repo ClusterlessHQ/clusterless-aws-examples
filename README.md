@@ -10,6 +10,13 @@ Consider exploring them in order:
 - [native-copy-chain](/native-copy-chain)
 - [python-batch](/python-batch)
 
+## Notes
+
+The examples rely on `jsonnet` to generate the JSON files. This is not a requirement imposed by Clusterless but a
+convenience to creating simple project files that don't need to be edited before deployment. e.g. S3 bucket names are global, so need to be unique to the deployment. 
+
+See [0002-static-json-as-configuration.md](https://github.com/ClusterlessHQ/clusterless/blob/main/docs/adr/0002-static-json-as-configuration.md).
+
 ## Prerequisites
 
 Currently Clusterless isn't downloadable, to install see:
