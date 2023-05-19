@@ -2,6 +2,8 @@
 
 This is a trivial example in Python that copies a file from one location to another.
 
+Use this example as a basis to create your own custom python applications.
+
 ## Setup
 
 To generate the project file:
@@ -62,7 +64,7 @@ cd app
 
 ## Full Deployment
 
-This deploys the whole project.
+This deploys the whole project:
 
 ```
 cd ..
@@ -71,3 +73,9 @@ cls deploy -p .project.json
 ```
 
 Once deployed, drop a file in the `/ingress` folder.
+
+To destroy the project when done:
+
+```
+cls destroy -p .project.json
+```

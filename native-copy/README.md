@@ -1,0 +1,39 @@
+# Native copy
+
+This is a trivial example that uses a built in funcion to copy a file from one path to another.
+
+Use this example to explore the metadata created in the buckets created during the bootstrap.
+
+Consider moving the resource and boundary constructs to a new project to see how constructs can be isolated and shared.
+
+That is, have one project create the bucket and deploy a boundary, and have a new project simply listen for events on the boundary dataset.
+
+## Setup
+
+To generate the project file:
+
+```
+jsonnet -o .project.json s3-copy-arc-project.jsonnet
+```
+
+This applies the properties from the bootstrap phase (see the jsonnet file).
+
+Note clusterless does not rely on jsonnet, but it is a convenience for generating JSON files from property files.
+
+## Deployment
+
+This deploys the project.
+
+```
+cd ..
+cls verify -p .project.json
+cls deploy -p .project.json
+```
+
+Once deployed, drop a file in the `/ingress` folder.
+
+To destroy the project when done:
+
+```
+cls destroy -p .project.json
+```
