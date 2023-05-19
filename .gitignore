@@ -7,3 +7,4 @@ cdk.out
 .clsconfig
 .clsconfig-aws
 .properties.libsonnet
+.project.json

@@ -9,6 +9,9 @@ def main():
     # for name, value in os.environ.items():
     #     print("env: {0}: {1}".format(name, value))
 
+    # raise an error to show how the state machine reports failures
+    # raise "Intentional Error"
+
     args = sys.argv[1:]
 
     # load the CLS_ARC_PROPS_JSON metadata
