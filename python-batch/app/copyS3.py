@@ -1,7 +1,6 @@
 import json
 import os
 import sys
-import urllib.parse
 
 from cloudpathlib import CloudPath
 from uritemplate import URITemplate
@@ -19,8 +18,8 @@ def main():
     arcProps = json.loads(os.environ['CLS_ARC_PROPS_JSON'])
     sourcePath = arcProps['sources']['main']['pathURI']
     sinkPath = arcProps['sinks']['main']['pathURI']
-    sinkManifestPath = urllib.parse.unquote(arcProps['sinkManifestPaths']['main'])
-    print('source: {}, sink: {}, sinkManifest: {}'.format(sourcePath, sinkPath, sinkManifestPath))
+    sinkManifestTemplate = arcProps['sinkManifestTemplates']['main']
+    print('source: {}, sink: {}, sinkManifest: {}'.format(sourcePath, sinkPath, sinkManifestTemplate))
 
     lot = args[0]
     manifestUri = args[1]
@@ -55,7 +54,7 @@ def main():
         }
     )
 
-    manifestUri = URITemplate(sinkManifestPath).expand(
+    manifestUri = URITemplate(sinkManifestTemplate).expand(
         {
             'lot': lot
             , 'state': 'complete'
