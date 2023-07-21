@@ -10,7 +10,7 @@ Modfiy the last arc to listen to the first so instead of a chain, there is a for
 
 To generate the project file:
 
-```
+```shell
 jsonnet -o .project.json s3-copy-chain-arc-project.jsonnet
 ```
 
@@ -22,8 +22,7 @@ Note clusterless does not rely on jsonnet, but it is a convenience for generatin
 
 This deploys the project.
 
-```
-cd ..
+```shell
 cls verify -p .project.json
 cls deploy -p .project.json
 ```
@@ -32,6 +31,6 @@ Once deployed, drop a file in the `/ingress` folder.
 
 To destroy the project when done:
 
-```
+```shell
 cls destroy -p .project.json
 ```

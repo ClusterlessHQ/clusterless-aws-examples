@@ -13,15 +13,22 @@ Consider exploring them in order:
 ## Notes
 
 The examples rely on `jsonnet` to generate the JSON files. This is not a requirement imposed by Clusterless but a
-convenience to creating simple project files that don't need to be edited before deployment. e.g. S3 bucket names are global, so need to be unique to the deployment. 
+convenience to creating simple project files that don't need to be edited before deployment. e.g. S3 bucket names are
+global, so need to be unique to the deployment.
 
 See [0002-static-json-as-configuration.md](https://github.com/ClusterlessHQ/clusterless/blob/main/docs/adr/0002-static-json-as-configuration.md).
 
+The default boundary has `eventArrival: "infrequent"`, this means the boundary will only be triggered once per upload
+per interval. Two uploads in the same interval will cause an error (error management here is a TODO).
+
+You can change this to `eventArrival: "frequent"` to have the boundary accumulate events within an interval. This has a
+slightly higher cost as the boundary polls for events at the end of every interval.
+
 ## Prerequisites
 
-Currently Clusterless isn't downloadable, to install see:
+To install see:
 
-- https://github.com/ClusterlessHQ/clusterless#prerequisites
+- https://github.com/ClusterlessHQ/clusterless#installing-clusterless
 
 You should also install these tools:
 
@@ -48,5 +55,3 @@ Clusterless is under active development. There are bugs, please post them.
 - https://github.com/ClusterlessHQ/clusterless/issues
 
 See the [Roadmap](https://github.com/ClusterlessHQ/clusterless/blob/main/ROADMAP.md).
-
-- Currently the default ingress boundary will accept one file every 5 minutes. A future version will handle unlimited arrivals per interval.

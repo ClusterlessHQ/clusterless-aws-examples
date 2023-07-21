@@ -29,6 +29,9 @@ local unit = 'Twelfths';
     {
       type: 'aws:core:s3PutListenerBoundary',
       name: 'IngressPutListener',
+      // infrequent: one event per interval
+      // frequent: many events per interval, slightly higher cost
+      eventArrival: "infrequent",
       dataset: {
         name: 'ingress-simple',
         version: '20220101',
