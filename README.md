@@ -4,6 +4,11 @@ _Warning, much assembly required._
 
 Here are a few examples using the [Clusterless](https://github.com/ClusterlessHQ/clusterless) cli.
 
+To learn more, see the documentation:
+
+* [User Guide](https://docs.clusterless.io/guide/1.0-wip/index.html)
+* [Reference](https://docs.clusterless.io/reference/1.0-wip/index.html)
+ 
 Consider exploring them in order:
 
 - [native-copy](/native-copy)
@@ -18,7 +23,7 @@ global, so need to be unique to the deployment.
 
 See [0002-static-json-as-configuration.md](https://github.com/ClusterlessHQ/clusterless/blob/main/docs/adr/0002-static-json-as-configuration.md).
 
-The default boundary has `eventArrival: "infrequent"`, this means the boundary will only be triggered once per upload
+The [default boundary](https://docs.clusterless.io/reference/1.0-wip/components/aws-core-s3-put-listener-boundary.html) has `eventArrival: "infrequent"`, this means the boundary will only be triggered once per upload
 per interval. Two uploads in the same interval will cause an error (error management here is a TODO).
 
 You can change this to `eventArrival: "frequent"` to have the boundary accumulate events within an interval. This has a
@@ -43,7 +48,7 @@ Copy `.properties.libsonnet.template` to `.properties.libsonnet` and edit.
 
 Then bootstrap Clusterless into the region:
 
-```
+```shell
 jsonnet bootstrap.jsonnet | jq -r '.[0]'
 ```
 
