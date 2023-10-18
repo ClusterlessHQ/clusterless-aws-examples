@@ -52,7 +52,6 @@ local unit = 'Twelfths';
         main: {
           name: 'ingress-python-example-source',
           version: '20230101',
-          pathURI: bucketPrefix + '/ingress/',
         },
       },
       sinks: {

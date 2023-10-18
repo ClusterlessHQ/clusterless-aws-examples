@@ -50,7 +50,6 @@ local unit = 'Twelfths';
         main: {
           name: 'ingress-simple',
           version: '20220101',
-          pathURI: bucketPrefix + '/ingress/',
         },
       },
       sinks: {
